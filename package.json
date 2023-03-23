@@ -1,0 +1,93 @@
+{
+  "name": "webpack-starter-basic",
+  "version": "1.0.0",
+  "description": ":doughnut: A simple webpack starter kit. Babel, TypeScript, ESLint, PostCSS, Jest, Environment variables, Git hooks, etc.",
+  "main": "index.js",
+  "scripts": {
+    "build:dev": "APP_ENV=development webpack --config webpack.build.js",
+    "build:prod": "APP_ENV=production webpack --config webpack.build.js",
+    "build": "npm run build:dev",
+    "dev": "APP_ENV=local webpack-dev-server --config webpack.dev.js",
+    "lint": "eslint src && stylelint 'src/**/*.css'",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ryotah/webpack-starter-basic.git"
+  },
+  "keywords": [
+    "babel",
+    "environment",
+    "hooks",
+    "jest",
+    "lint",
+    "starter",
+    "typescript",
+    "webpack"
+  ],
+  "author": "ryotah",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ryotah/webpack-starter-basic/issues"
+  },
+  "homepage": "https://github.com/ryotah/webpack-starter-basic#readme",
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "eslint --fix"
+    ],
+    "*.css": [
+      "stylelint --fix"
+    ],
+    "*.html": [
+      "prettier --write"
+    ]
+  },
+  "browserslist": [
+    "defaults"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@types/jest": "^26.0.0",
+    "@typescript-eslint/eslint-plugin": "^3.2.0",
+    "@typescript-eslint/parser": "^3.2.0",
+    "autoprefixer": "^9.8.0",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^6.0.2",
+    "css-loader": "^3.5.3",
+    "dotenv": "^8.2.0",
+    "eslint": "^7.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "html-webpack-plugin": "^4.3.0",
+    "husky": "^4.2.5",
+    "jest": "^26.0.1",
+    "lint-staged": "^10.2.9",
+    "mini-css-extract-plugin": "^0.9.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss-loader": "^3.0.0",
+    "prettier": "^2.0.5",
+    "stylelint": "^13.6.0",
+    "stylelint-config-standard": "^20.0.0",
+    "ts-jest": "^26.1.0",
+    "ts-loader": "^7.0.5",
+    "typescript": "^3.9.5",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^4.2.2"
+  },
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "normalize.css": "^8.0.1"
+  }
+}
